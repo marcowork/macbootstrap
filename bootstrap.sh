@@ -17,6 +17,10 @@
 # - https://gist.github.com/MatthewMueller/e22d9840f9ea2fee4716
 # - https://news.ycombinator.com/item?id=8402079
 # - http://notes.jerzygangi.com/the-best-pgp-tutorial-for-mac-os-x-ever/
+#
+# This installer works also behind a corporate proxy. In order to make this work, you 
+# need to setup a reverse proxy using CNTLM or Preproxy. Unfortunately there is no
+# brew package for preproxy
 
 echo "Starting bootstrapping"
 

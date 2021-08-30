@@ -5,6 +5,19 @@
 ### HomeBrew
 This bootstrap shell script will make sure Homebrew is installed. 
 
+### Git behind proxy
+To make git work behind a corporate proxy over ssh you need to set a create a config file in `~/.ssh/config containing` the following:
+```
+host github.com
+    user git
+    hostname ssh.github.com
+    port 443
+    proxycommand socat - PROXY:localhost:%h:%p,proxyport=3128
+
+``` 
+This script will make sure your config file is created accordingly
+
+
 
 ### Installed packages 
 
@@ -37,21 +50,24 @@ The folowing packages are installed to make it easier for me to controle my macb
     25. tmux
     26. tree
     27. vim
-    28. wget
+    28. socat # needed for ssh through proxy
+    29. wget
 
 ### Installed applications:
 
-    1. enpass
-    2. firefox
-    3. flux
-    4. google-drive
-    5. iterm2
-    6. macvim
-    7. microsoft-office
-    8. microsoft-teams
-    9. snip
-    10. vagrant
-    11. virtualbox
-    12. vlc
-    13. visual-studio-code
-    14. google-chrome
+    1. drawio
+    2. enpass
+    3. firefox
+    4. flux
+    5. google-drive
+    6. iterm2
+    7. macvim
+    8. microsoft-office
+    9. microsoft-teams
+    10. snip
+    11. vagrant
+    12. virtualbox
+    13. vlc
+    14. visual-studio-code
+    15. google-chrome
+    16. nomad
