@@ -20,6 +20,22 @@
 
 echo "Starting bootstrapping"
 
+# create a config file to make sure git push works behind a preproxy
+echo "creating ssh config file"
+file_location=~/.ssh/config
+if [ -f $file_location ]; then
+  echo "check if the config file already exists" 
+  echo "File $file_location already exists!"
+else
+  cat > $file_location <<EOF
+host github.com
+    user git
+    hostname ssh.github.com
+    port 443
+    proxycommand socat - PROXY:localhost:%h:%p,proxyport=3128
+EOF
+fi
+
 # Check for Homebrew, install if we don't have it
 if test ! $(which brew); then
     echo "Installing homebrew..."
@@ -56,6 +72,7 @@ PACKAGES=(
     libmemcached 
     lynx
     markdown
+    mackup
     memcached
     npm
     pkg-config
@@ -66,7 +83,7 @@ PACKAGES=(
     tmux
     tree
     vim
-    socat
+    socat # needed for ssh through proxy
     wget
 )
 
@@ -77,6 +94,7 @@ echo "Installing cask..."
 brew Tap homebrew/cask 
 
 CASKS=(
+    drawio
     enpass
     firefox
     flux
@@ -90,10 +108,12 @@ CASKS=(
     vlc
     visual-studio-code
     google-chrome
+    nomad
 )
 
-echo "Installing cask apps..."
+echo "Installing cask apps... Mind you, you can be requested for a password."
 brew install --cask  ${CASKS[@]}
+brew upgrade 
 
 echo "Configuring OSX..."
 
@@ -101,8 +121,8 @@ echo "Configuring OSX..."
 defaults write NSGlobalDomain KeyRepeat -int 0
 
 # Require password as soon as screensaver or sleep mode starts
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+# defaults write com.apple.screensaver askForPassword -int 1
+# defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Show filename extensions by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -113,7 +133,6 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Disable "natural" scroll
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
-
 
 
 echo "Bootstrapping complete"
