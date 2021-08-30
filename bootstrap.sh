@@ -72,9 +72,6 @@ PACKAGES=(
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
 
-
-
-
 echo "Installing cask..."
 brew Tap homebrew/cask 
 
@@ -84,7 +81,6 @@ CASKS=(
     flux
     google-drive
     iterm2
-    macvim
     microsoft-office
     microsoft-teams
     snip
