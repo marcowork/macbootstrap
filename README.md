@@ -5,6 +5,10 @@
 ### HomeBrew
 This bootstrap shell script will make sure Homebrew is installed. 
 
+This installer works also behind a corporate proxy. In order to make this work, you 
+need to setup a reverse proxy using CNTLM or Preproxy. Unfortunately there is no
+brew package for preproxy
+
 ### Git behind proxy
 To make git work behind a corporate proxy over ssh you need to set a create a config file in `~/.ssh/config containing` the following:
 ```
