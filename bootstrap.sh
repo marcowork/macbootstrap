@@ -65,7 +65,8 @@ PACKAGES=(
     the_silver_searcher
     tmux
     tree
-    # vim
+    vim
+    socat
     wget
 )
 
