@@ -139,4 +139,17 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
 
+
+echo "creating bash profile"
+file_location=~/.profile
+if [ -f $file_location ]; then
+  echo "check if the .profile file already exists" 
+  echo "$file_location already exists!"
+else
+  wget -P ~/ https://raw.githubusercontent.com/marcowork/profile/main/.profile
+  source ~/.profile
+fi
+
+
+
 echo "Bootstrapping complete"
