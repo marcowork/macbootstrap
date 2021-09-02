@@ -89,6 +89,7 @@ PACKAGES=(
     vim
     socat # needed for ssh through proxy
     wget
+    wifi-password #will get the wifi password of the network you are on after a Keychain authentication
 )
 
 echo "Installing packages..."
