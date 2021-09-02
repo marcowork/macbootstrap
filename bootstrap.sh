@@ -122,7 +122,10 @@ brew upgrade
 echo "Configuring OSX..."
 
 # Set fast key repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 2 # normal minimum is 2 (30 ms)
+# The changes aren't applied until you log out and back in. KeyRepeat can't be set between 2 (30 ms) and 1 (15 ms) though.
+
+
 
 # Require password as soon as screensaver or sleep mode starts
 # defaults write com.apple.screensaver askForPassword -int 1
