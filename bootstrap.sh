@@ -61,6 +61,7 @@ brew install bash
 PACKAGES=(
     ack
     autoconf
+    archey #https://obihann.github.io/archey-osx/
     automake
     ansible
     boot2docker
