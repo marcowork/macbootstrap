@@ -132,7 +132,7 @@ defaults write NSGlobalDomain KeyRepeat -int 2 # normal minimum is 2 (30 ms)
 # defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Show filename extensions by default
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write NSGlobalDomain AppleShowAllExtensions -bool false
 
 # Enable tap-to-click
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
