@@ -144,6 +144,9 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool false
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
 
+# set hostname to whatever I want it to be
+sudo scutil --set HostName MarcoWork-Mac
+#sudo scutil --set HostName APM3LC02C85D2MD6T-9866562
 
 echo "creating bash profile"
 file_location=~/.profile
