@@ -100,6 +100,7 @@ echo "Installing cask..."
 brew Tap homebrew/cask 
 
 CASKS=(
+    adobe-acrobat-reader
     drawio
     enpass
     firefox
