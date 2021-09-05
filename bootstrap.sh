@@ -160,5 +160,20 @@ else
 fi
 
 
+echo "fixing display settings every time"
+# In order to get the displays to be set via the command line we need to download displayplacer
+# https://github.com/jakehilborn/displayplacer 
+
+echo "downloading displayplacer from github"
+brew tap jakehilborn/jakehilborn && brew install displayplacer
+
+echo "grabbing your current settings"
+displayplacer list
+
+echo "setting your screens as to your settings"
+displayplacer "id:AB151011-F65C-61EE-4DE5-98BB08D38AA3 res:1792x1120 hz:59 color_depth:4 scaling:on origin:(0,0) degree:0" "id:419AE185-DFFB-79EC-3782-97473883A7BB res:1920x1080 hz:60 color_depth:8 scaling:off origin:(826,-1080) degree:0" "id:6BFF9EC0-E99A-6A36-9A60-778B98FECFF5 res:1920x1080 hz:60 color_depth:8 scaling:off origin:(-1094,-1080) degree:0"
+
+echo "grabbing your new settings"
+displayplacer list
 
 echo "Bootstrapping complete"
