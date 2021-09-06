@@ -1,7 +1,7 @@
-name: Bla Bla Bla
+name: Testing if my bootstrap.sh script works and does not give errors
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Test-Installation-Action:
     runs-on: macos-latest
     steps:
     #   - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
