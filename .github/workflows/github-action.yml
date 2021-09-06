@@ -21,14 +21,11 @@ jobs:
         run: |
           ls ${{ github.workspace }}
 
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-
       - name: give boostrap script execute permissions
         run: | 
           chmod +x ${{github.workspace}}/bootstrap.sh
       
       - name: Run bootstrap.sh script 
-        run: |
-          ${{github.workspace}}/bootstrap.sh"
+        run: ./bootstrap.sh"
 
       
