@@ -1,6 +1,6 @@
 # macbootstrap
 
-![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/github-action.yml/badge.svg)
+![example workflow](https://github.com/marcowork/macbootstrap/actions/workflows/github-action.yml/badge.svg)
 
 ## Bootstrapping my mac
 
