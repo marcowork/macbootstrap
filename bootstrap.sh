@@ -24,27 +24,6 @@
 
 echo "Starting bootstrapping"
 
-# create a config file to make sure git push works behind a preproxy
-echo "creating ssh config file"
-file_location=~/.ssh/config
-if [ -f $file_location ]; then
-  echo "check if the config file already exists" 
-  echo "File $file_location already exists!"
-else
-  cat > $file_location <<EOF
-host github.com
-    user git
-    hostname ssh.github.com
-    port 443
-    proxycommand socat - PROXY:localhost:%h:%p,proxyport=3128
-EOF
-fi
-
-# Check for Homebrew, install if we don't have it
-if test ! $(which brew); then
-    echo "Installing homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
 
 # Update homebrew recipes
 brew update
@@ -175,5 +154,30 @@ displayplacer "id:AB151011-F65C-61EE-4DE5-98BB08D38AA3 res:1792x1120 hz:59 color
 
 echo "grabbing your new settings"
 displayplacer list
+
+# create a config file to make sure git push works behind a preproxy
+echo "creating ssh config file"
+file_location=~/.ssh/config
+if [ -f $file_location ]; then
+  echo "check if the config file already exists" 
+  echo "File $file_location already exists!"
+else
+  cat > $file_location <<EOF
+host github.com
+    user git
+    hostname ssh.github.com
+    port 443
+    proxycommand socat - PROXY:localhost:%h:%p,proxyport=3128
+EOF
+fi
+
+# Check for Homebrew, install if we don't have it
+if test ! $(which brew); then
+    echo "Installing homebrew..."
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+
+
 
 echo "Bootstrapping complete"
