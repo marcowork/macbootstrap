@@ -25,10 +25,10 @@ jobs:
 
       - name: give boostrap script execute permissions
         run: | 
-          chmod +x {{github.workspace}}/bootstrap.sh
+          chmod +x ${{github.workspace}}/bootstrap.sh
       
       - name: Run bootstrap.sh script 
         run: |
-          {{github.workspace}}/bootstrap.sh"
+          ${{github.workspace}}/bootstrap.sh"
 
       
