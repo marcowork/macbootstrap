@@ -26,6 +26,6 @@ jobs:
           chmod +x ${{github.workspace}}/bootstrap.sh
       
       - name: Run bootstrap.sh script 
-        run: ./bootstrap.sh"
+        run: ./bootstrap.sh
 
       
