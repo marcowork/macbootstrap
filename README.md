@@ -31,43 +31,46 @@ The folowing packages are installed to make it easier for me to controle my macb
 
     1. ack
     2. autoconf
-    3. automake
-    4. ansible
-    5. boot2docker
-    6. balenaetcher
-    7. gettext
-    8. git
-    9. graphviz
-    10. hub
-    11. htop
-    12. imagemagick
-    13. jq
-    14. libjpeg
-    15. libmemcached 
-    16. lynx
-    17. markdown
-    18. memcached
-    19. npm
-    20. pkg-config
-    21. rename
-    22. terminal-notifier
-    23. tldr
-    24. the_silver_searcher
-    25. tmux
-    26. tree
-    27. vim
-    28. socat # needed for ssh through proxy
-    29. wget
+    3. archey #https://obihann.github.io/archey-osx/
+    4. automake
+    5. ansible
+    6. boot2docker
+    7. balenaetcher
+    8. gettext
+    9. git
+    10. graphviz
+    11. hub
+    12. htop
+    13. imagemagick
+    14. jq
+    15. libjpeg
+    16. libmemcached 
+    17. lynx
+    18. markdown
+    19. mackup
+    20. memcached
+    21. npm
+    22. pkg-config
+    23. rename
+    24. terminal-notifier
+    25. tldr
+    26. the_silver_searcher
+    27. tmux
+    28. tree
+    29. vim
+    30. socat # needed for ssh through proxy
+    31. wget
+    32. wifi-password #will get the wifi password of the network you are on after a Keychain authentication
 
 ### Installed applications:
 
-    1. drawio
-    2. enpass
-    3. firefox
-    4. flux
-    5. google-drive
-    6. iterm2
-    7. macvim
+    1. adobe-acrobat-reader
+    2. drawio
+    3. enpass
+    4. firefox
+    5. flux
+    6. google-drive
+    7. iterm2
     8. microsoft-office
     9. microsoft-teams
     10. snip
