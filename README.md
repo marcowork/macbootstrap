@@ -1,5 +1,7 @@
 # macbootstrap
 
+![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/github-action.yml/badge.svg)
+
 ## Bootstrapping my mac
 
 ### HomeBrew
