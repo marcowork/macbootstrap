@@ -63,6 +63,7 @@ PACKAGES=(
     rename
     terminal-notifier
     tldr
+    thefuck
     the_silver_searcher
     tmux
     tree
