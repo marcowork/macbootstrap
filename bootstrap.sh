@@ -81,6 +81,7 @@ brew Tap homebrew/cask
 
 CASKS=(
     adobe-acrobat-reader
+    caffeine
     drawio
     enpass
     firefox
