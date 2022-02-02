@@ -24,6 +24,8 @@
 
 echo "Starting bootstrapping"
 
+# Install xcode
+xcode-select --install
 
 # Update homebrew recipes
 brew update
@@ -88,8 +90,11 @@ CASKS=(
     flux
     google-drive
     iterm2
+    insomnia
+    jiggler
     microsoft-office
     microsoft-teams
+    microsoft-remote-desktop
     snip
     vagrant
     virtualbox
@@ -97,6 +102,7 @@ CASKS=(
     visual-studio-code
     google-chrome
     nomad
+    
 )
 
 echo "Installing cask apps... Mind you, you can be requested for a password."
@@ -180,6 +186,15 @@ if test ! $(which brew); then
 fi
 
 
+# have_sudo_access() {
+#   HAVE_SUDO_ACCESS="0"
+#   if [[ -z "${HOMEBREW_ON_LINUX-}" ]] && [[ "${HAVE_SUDO_ACCESS}" -ne 0 ]]
+#   then
+#     abort "Need sudo access on macOS (e.g. the user ${USER} needs to be an Administrator)!"
+#   fi
+ 
+#   return "${HAVE_SUDO_ACCESS}"
+# }
 
 
 echo "Bootstrapping complete"
