@@ -25,19 +25,48 @@
 echo "Starting bootstrapping"
 
 # Install xcode
-xcode-select --install
+## //TODO CHeck if xcode is already installed
+if ! command -v xcode-select -p &> /dev/null
+    then xcode-select --install
+    exit
+else echo "xcode-select is already installed"
+fi
+
+## For WorkMacbook you have to run this shell script in order to get proper access for Homebrew
+have_sudo_access() {
+  HAVE_SUDO_ACCESS="0"
+  if [[ -z "${HOMEBREW_ON_LINUX-}" ]] && [[ "${HAVE_SUDO_ACCESS}" -ne 0 ]]
+  then
+    abort "Need sudo access on macOS (e.g. the user ${USER} needs to be an Administrator)!"
+  fi
+ 
+  return "${HAVE_SUDO_ACCESS}"
+}
 
 # Update homebrew recipes
 brew update
 
 # Install GNU core utilities (those that come with OS X are outdated)
-brew install coreutils
+if ! command -v brew install coreutils &> /dev/null
+    then brew install coreutils
+    exit
+else echo "coreutils is already installed"
+fi
+
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew install findutils
+if ! command -v brew install findutils &> /dev/null
+    then brew install findutils
+    exit
+else echo "findutils is already installed"
+fi
 
 # Install Bash 4
-brew install bash
+if ! command -v brew install bash &> /dev/null
+    then brew install bash
+    exit
+else echo "bash is already installed"
+fi
 
 PACKAGES=(
     ack
@@ -76,7 +105,10 @@ PACKAGES=(
 )
 
 echo "Installing packages..."
-brew install ${PACKAGES[@]}
+if ! command -v brew install ${PACKAGES[@]} &> /dev/null
+    then  brew install ${PACKAGES[@]}
+else  brew upgrade
+fi
 
 echo "Installing cask..."
 brew Tap homebrew/cask 
@@ -102,12 +134,14 @@ CASKS=(
     visual-studio-code
     google-chrome
     nomad
-    
 )
 
 echo "Installing cask apps... Mind you, you can be requested for a password."
-brew install --cask  ${CASKS[@]}
-brew upgrade 
+if ! command -v brew install --cask  ${CASKS[@]} &> /dev/null
+    then  --cask  ${CASKS[@]}
+else  brew upgrade
+fi
+
 
 echo "Configuring OSX..."
 
@@ -184,17 +218,5 @@ if test ! $(which brew); then
     echo "Installing homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-
-
-# have_sudo_access() {
-#   HAVE_SUDO_ACCESS="0"
-#   if [[ -z "${HOMEBREW_ON_LINUX-}" ]] && [[ "${HAVE_SUDO_ACCESS}" -ne 0 ]]
-#   then
-#     abort "Need sudo access on macOS (e.g. the user ${USER} needs to be an Administrator)!"
-#   fi
- 
-#   return "${HAVE_SUDO_ACCESS}"
-# }
-
 
 echo "Bootstrapping complete"
